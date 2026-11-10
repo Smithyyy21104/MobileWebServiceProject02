@@ -1,0 +1,129 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#101115"
+    android:fillViewport="false"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="NOIR FRAME."
+            android:textColor="#D7B58D"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:letterSpacing="0.12" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Upload Photograph"
+            android:textColor="#FFFFFF"
+            android:textSize="25sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Create a new photography post."
+            android:textColor="#A5A5AD"
+            android:textSize="14sp" />
+
+        <ImageView
+            android:id="@+id/ivUploadPreview"
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_marginTop="22dp"
+            android:background="#25272E"
+            android:scaleType="centerCrop"
+            android:contentDescription="Selected photograph"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/tvSelectedImage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="No photograph selected"
+            android:textColor="#A5A5AD"
+            android:gravity="center"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/btnChooseImage"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:text="Choose Photograph"
+            android:textAllCaps="false"
+            android:textColor="#101115"
+            android:backgroundTint="#D7B58D" />
+
+        <EditText
+            android:id="@+id/etUploadTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:hint="Photograph title"
+            android:inputType="textCapSentences"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#85858D"
+            android:backgroundTint="#D7B58D"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etUploadText"
+            android:layout_width="match_parent"
+            android:layout_height="110dp"
+            android:layout_marginTop="12dp"
+            android:hint="Write your story..."
+            android:inputType="textMultiLine"
+            android:gravity="top"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#85858D"
+            android:backgroundTint="#D7B58D"
+            android:padding="12dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:text="ACCOUNT"
+            android:textColor="#D7B58D"
+            android:textSize="12sp"
+            android:letterSpacing="0.1" />
+
+        <EditText
+            android:id="@+id/etUploadUsername"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Username"
+            android:inputType="text"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#85858D"
+            android:backgroundTint="#D7B58D"
+            android:padding="12dp" />
+
+        <EditText
+            android:id="@+id/etUploadPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#85858D"
+            android:backgroundTint="#D7B58D"
+            android:padding="12dp" />
+
+    </LinearLayout>
+
+</ScrollView>

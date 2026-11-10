@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Noir Frame | Photography Journal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #101115;
+            color: #f5f3ef;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 7%;
+            border-bottom: 1px solid #26272b;
+        }
+
+        .logo {
+            color: #e5c19a;
+            font-size: 23px;
+            font-weight: 700;
+            letter-spacing: 2px;
+        }
+
+        nav a {
+            color: #aaa;
+            text-decoration: none;
+            margin-left: 25px;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #e5c19a;
+        }
+
+        .hero {
+            padding: 100px 7% 80px;
+            max-width: 1000px;
+        }
+
+        .eyebrow {
+            color: #d7b58d;
+            font-size: 12px;
+            letter-spacing: 4px;
+        }
+
+        h1 {
+            font-size: clamp(42px, 7vw, 90px);
+            line-height: 1.1;
+            letter-spacing: -2px;
+            margin: 20px 0;
+        }
+
+        h1 span {
+            color: #d7b58d;
+        }
+
+        .subtitle {
+            color: #999ba3;
+            font-size: 17px;
+            line-height: 1.7;
+            max-width: 500px;
+        }
+
+        .gallery {
+            padding: 20px 7% 90px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 500;
+            margin-bottom: 35px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 24px;
+        }
+
+        .card {
+            background: #1b1d23;
+            border: 1px solid #282a31;
+            border-radius: 12px;
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 330px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .card-content {
+            padding: 22px;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin: 0 0 10px;
+        }
+
+        .card p {
+            color: #a5a5ad;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .date {
+            color: #d7b58d;
+            font-size: 12px;
+        }
+
+        .empty {
+            padding: 65px 20px;
+            border: 1px dashed #45454d;
+            border-radius: 12px;
+            color: #aaa;
+            text-align: center;
+            grid-column: 1 / -1;
+        }
+
+        footer {
+            padding: 35px 7%;
+            border-top: 1px solid #26272b;
+            color: #777;
+            text-align: center;
+        }
+
+        @media (max-width: 900px) {
+            .grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 600px) {
+            header {
+                padding: 25px 5%;
+            }
+
+            nav a {
+                margin-left: 12px;
+            }
+
+            .hero {
+                padding: 70px 5%;
+            }
+
+            .gallery {
+                padding: 20px 5% 70px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">NOIR FRAME.</div>
+    <nav>
+        <a href="/">Home</a>
+        <a href="#gallery">Gallery</a>
+        <a href="/admin/">Admin</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <p class="eyebrow">THE PHOTOGRAPHY JOURNAL</p>
+    <h1>Every frame<br>tells <span>a story.</span></h1>
+    <p class="subtitle">
+        A curated collection of photographs, memories
+        and moments worth remembering.
+    </p>
+</section>
+
+<section class="gallery" id="gallery">
+    <h2 class="section-title">Latest Photographs</h2>
+
+    <div class="grid">
+        {% for post in posts %}
+        <article class="card">
+            <img src="{{ post.image.url }}" alt="{{ post.title }}">
+            <div class="card-content">
+                <span class="date">
+                    {{ post.published_date|date:"M d, Y" }}
+                </span>
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.text|truncatewords:25 }}</p>
+            </div>
+        </article>
+        {% empty %}
+        <div class="empty">
+            <h2>No photographs published yet</h2>
+            <p>Add your first photo through Django Admin.</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+
+<footer>
+    NOIR FRAME · Photography Journal
+</footer>
+
+</body>
+</html>
